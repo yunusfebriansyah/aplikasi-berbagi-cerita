@@ -2,10 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_Model extends CI_Model{
-  public function __construct()
+
+  public function getDetailUser($username)
   {
-    parent::__construct();
-    $this->load->model("User_Model","user_model",TRUE);
+    return $this->db->get_where('users', ['username' => $username])->result_array();
   }
 
 
