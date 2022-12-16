@@ -11,7 +11,7 @@ class Login extends Server {
     if( !$data ) :
       $this->response(
         [
-          "status" => 200,
+          "status" => 301,
           "message" => 'Login Gagal'
         ],200);
     else :
