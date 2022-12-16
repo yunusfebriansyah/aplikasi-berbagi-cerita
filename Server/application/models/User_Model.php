@@ -39,5 +39,12 @@ class User_Model extends CI_Model{
     $this->db->update('users');
   }
 
+  public function changePassword($password, $username)
+  {
+    $this->db->set('password', password_hash($password, PASSWORD_DEFAULT));
+    $this->db->where('username', $username);
+    $this->db->update('users');
+  }
+
 
 }
