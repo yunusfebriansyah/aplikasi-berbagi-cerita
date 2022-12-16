@@ -7,7 +7,7 @@ class Login extends Server {
   public function service_post()
   {
     $this->load->model('User_Model', 'user_model', TRUE);
-    $data = $this->user_model->loginUser( $this->input->post('username'), $this->input->post('password') );
+    $data = $this->user_model->loginUser( $this->post('username'), $this->post('password') );
     if( !$data ) :
       $this->response(
         [

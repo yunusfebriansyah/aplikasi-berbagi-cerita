@@ -7,10 +7,10 @@ class Register extends Server {
   public function service_post()
   {
     $this->load->model('User_Model', 'user_model', TRUE);
-    $name = $this->input->post('name');
-    $username = $this->input->post('username');
-    $password = $this->input->post('password');
-    $passwordRepeat = $this->input->post('password_repeat');
+    $name = $this->post('name');
+    $username = $this->post('username');
+    $password = $this->post('password');
+    $passwordRepeat = $this->post('password_repeat');
 
     $errors = [
       'name' => null,

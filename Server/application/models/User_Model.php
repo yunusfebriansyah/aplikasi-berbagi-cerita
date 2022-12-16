@@ -29,5 +29,15 @@ class User_Model extends CI_Model{
     $this->db->insert('users', $data);
   }
 
+  public function editUser($name, $username, $newUsername = null)
+  {
+    $this->db->set('name', $name);
+    if( $newUsername != null ) :
+      $this->db->set('username', $newUsername);
+    endif;
+    $this->db->where('username', $username);
+    $this->db->update('users');
+  }
+
 
 }
