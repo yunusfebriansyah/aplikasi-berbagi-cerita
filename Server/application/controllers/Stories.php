@@ -46,9 +46,9 @@ class Stories extends Server {
   public function service_put($id)
   {
     $data = [
-      'user_id' => $this->input->put('user_id'),
-      'title' => $this->input->put('title'),
-      'description' => $this->input->put('description')
+      'user_id' => $this->put('user_id'),
+      'title' => $this->put('title'),
+      'description' => $this->put('description')
     ];
     $result = $this->stories_model->editStories($data, $id);
     if( $result ) :
