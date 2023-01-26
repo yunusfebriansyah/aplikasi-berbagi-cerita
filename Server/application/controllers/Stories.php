@@ -66,6 +66,24 @@ class Stories extends Server {
     endif;
   }
 
+  public function service_delete($id)
+  {
+    $result = $this->stories_model->deleteStories($id);
+    if( $result ) :
+      $this->response(
+        [
+          "status" => 200,
+          "message" => 'Hapus cerita berhasil'
+        ],200);
+      else :
+        $this->response(
+          [
+            "status" => 200,
+            "message" => 'Hapus cerita gagal!'
+          ],200);
+    endif;
+  }
+
   
 
 }
