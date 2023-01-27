@@ -5,14 +5,19 @@ class Stories_Model extends CI_Model{
 
   public function getAllStories()
   {
-    $this->db->order_by('id', 'DESC');
-    return $this->db->get('stories')->result_array();
+    $this->db->order_by('story_id', 'DESC');
+    return $this->db->get('vw_stories')->result_array();
+  }
+
+  public function getDetailStory($id)
+  {
+    return $this->db->get_where('vw_stories', ['story_id' => $id])->row();
   }
   
   public function getStoriesByUser($userId)
   {
-    $this->db->order_by('id', 'DESC');
-    return $this->db->get_where('stories', ['user_id' => $userId])->result_array();
+    $this->db->order_by('story_id', 'DESC');
+    return $this->db->get_where('vw_stories', ['user_id' => $userId])->result_array();
   }
 
   public function addStories($data)
